@@ -20,6 +20,7 @@ front-family: montserrat, sans-serif;
   margin: 100px auto 0;
   width: 400px;
 height: 600;
+perspective: 1000px;  
 }
 
 .card__inner {
