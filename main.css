@@ -85,17 +85,46 @@ width: 100%;
   z-index: -1;
   border-radius: 0 0 50% 0;
   background-image: linear-gradient(to bottom left, var(--primary) 10%, var (--secondary) 115%);
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.pp {
+  display: block;
+  width: 128px;
+  height: 128px; 
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 5px solid #FFFFFF;
+  object-fit: cover;
+}
   
-  
+.card__header h2 {
+  color: #FFFFFF;
+  font-size: 32px;
+  font-weight: 900;
+  text-transfrom: uppercase;
+  text-align: center;
+}
+
+.card__body {
+  padding: 30px; 
+}
+
+.card__body h3 {
+  color: var(--dark);
+  font-size: 24px; 
+  font-weight: 600; 
+  margin-bottom: 15px; 
+}
+
+.card__body p {
+  color: var(--dark); 
+  font-size: 18px; 
+  line-height: 1.5; 
+}
+
+
+
+
+
+
