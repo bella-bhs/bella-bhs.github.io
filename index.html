@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>Card Game Fact Generator</title> 
+  <style>
+    .flashcard {
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+    }
+   .flashcard img {
+     width: 100%;
+     height: auto;
+   }
+    .flashcard .text-overlay {
+      postition: absolute;
+      top: 50%;
+        left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background-color: rgba (0, 0, 0, 0.5); 
+      padding: 10px; 
+      border-radius: 5px; 
+    }
+  </style>
 </head>
   <body>
+    <div class="flashcard"></div>
 
-             <p>Octopuses have three hearts. One pumps blood around the body, while the other two 
-               pump it to the grills. Oh, and that blood is blue, thanks to high copper levels!
-             </p>
-    <img src="https://cdn.britannica.com/98/157198-050-8B4735F2/Octopus-swimming.jpg">
+    <img src="https://cdn.britannica.com/98/157198-050-8B4735F2/Octopus-swimming.jpg" alt="Flashcard Image">
+    <div class= "text-overlay" Octopuses have three hearts. One pumps blood around the body, while the other two 
+               pump it to the grills. Oh, and that blood is blue, thanks to high copper levels!>
           
  
     
