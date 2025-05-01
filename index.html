@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Card Game Fact Generator</title> 
-  <style>
-    .flashcard {
-      width: 300px;
-      height: 200px;
-      border: 1px solid black;
-      text-align: center;
-      padding: 10px;
-      position: relative;
-    }
-   .flashcard img {
-     width: 100%;
-     height: auto;
-   }
-    .flashcard .text-overlay {
-      postition: absolute;
-      top: 50%;
-        left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 20px;
-      background-color: rgba (0, 0, 0, 0.5); 
-      padding: 10px; 
-      border-radius: 5px; 
-    }
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Game Card</title>
+	<link rel="stylesheet" href="main.css" />
 </head>
-  <body>
-    <div class="flashcard"></div>
-
-    <img src="https://cdn.britannica.com/98/157198-050-8B4735F2/Octopus-swimming.jpg" alt="Flashcard Image">
-
-          
- 
-    
-  </body>
+<body>
+	<div class="card">
+		<div class="card__inner">
+			<div class="card__face card__face--front">
+				<h2>Card Front</h2>
+			</div>
+			<div class="card__face card__face--back">
+				<div class="card__content">
+					<div class="card__header">
+						<img src="pp.jpg" alt="" class="pp" />
+						<h2>Tyler Potts</h2>
+					</div>
+					<div class="card__body">
+						<h3>JavaScript Wizard</h3>
+						<p>Lorem ipsum <strong>dolor</strong> sit amet, consectetur <strong>adipiscing</strong> elit. Sed id erat a magna lobortis dictum. Nunc est arcu, <strong>lacinia</strong> quis sapien placerat, <strong>laoreet</strong> tincidunt nulla.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
 </html>
