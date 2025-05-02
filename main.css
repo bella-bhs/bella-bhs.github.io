@@ -23,6 +23,7 @@ body {
   width: 400px;
   height: 600px;
   perspective: 1000px;
+  display:inline-block;
 }
 
 .card__inner {
