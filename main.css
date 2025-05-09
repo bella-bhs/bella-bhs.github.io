@@ -128,7 +128,14 @@ body {
 }
 
 
-
+  .previous {
+        background-color: #f1f1f1;
+        color: black;
+    }
+    .next {
+        background-color: #04AA6D;
+        color: white;
+    }
 
 
 
