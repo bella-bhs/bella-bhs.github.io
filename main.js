@@ -1,39 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".card");
-  let currentCard = 0;  // Track the current card index
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".previous");
+  const challengeScreen = document.getElementById("challenge-screen");
+  const cardContainer = document.querySelector(".card-container");
+  const navButtons = document.querySelector(".nav-buttons");
 
-  // Function to show the current card only
+  let currentCard = 0;
+
   function showCard(index) {
-    // Hide all cards
-    cards.forEach(function (card, idx) {
-      card.style.display = idx === index ? "block" : "none";
+    cards.forEach((card, i) => {
+      card.style.display = i === index ? "block" : "none";
     });
   }
 
-  // Show the first card initially
   showCard(currentCard);
 
-  // Add event listener for the "next" button
-  document.querySelector('.next').addEventListener('click', function () {
-    if (currentCard < cards.length - 1) {
-      currentCard++;  // Move to the next card
-      showCard(currentCard);  // Show the next card
-    }
-  });
-
-  // Add event listener for the "previous" button
-  document.querySelector('.previous').addEventListener('click', function () {
-    if (currentCard > 0) {
-      currentCard--;  // Move to the previous card
-      showCard(currentCard);  // Show the previous card
-    }
-  });
-
-  // Add event listener for flipping the card
-  cards.forEach(function (card) {
-    const cardInner = card.querySelector('.card__inner');
-    cardInner.addEventListener("click", function () {
-      cardInner.classList.toggle('is-flipped');
+  cards.forEach(card => {
+    const inner = card.querySelector(".card__inner");
+    inner.addEventListener("click", () => {
+      inner.classList.toggle("is-flipped");
     });
   });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentCard < cards.length - 1) {
+      currentCard++;
+      showCard(currentCard);
+    } else {
+      // Show challenge screen
+      cardContainer.style.display = "none";
+      navButtons.style.display = "none";
+      challengeScreen.style.display = "flex";
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentCard > 0) {
+      currentCard--;
+      showCard(currentCard);
+    }
+  });
 });
+
