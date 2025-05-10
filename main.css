@@ -96,6 +96,85 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary
+  background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
+  z-index: -1;
+  border-radius: 0px 0px 50% 0px;
+}
 
+.pp {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background-color: #FFF;
+  border: 5px solid #FFF;
+  object-fit: cover;
+}
 
+.card__header h2 {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card__body {
+  padding: 30px;
+}
+
+.card__body h3 {
+  color: var(--dark);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card__body p {
+  color: var(--dark);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* Navigation button styles at the bottom */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+}
+
+.nav-buttons button {
+  padding: 12px 30px;
+  margin: 0 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px; /* Round the corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.nav-buttons .previous {
+  background: linear-gradient(45deg, #ff6b81, #f06396);
+  color: white;
+}
+
+.nav-buttons .next {
+  background: linear-gradient(45deg, #04AA6D, #1de09f);
+  color: white;
+}
+
+.nav-buttons .previous:hover,
+.nav-buttons .next:hover {
+  transform: scale(1.1); /* Slightly enlarge the buttons on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+}
+
+/* Add some margin space to avoid the buttons from being too close to the edge */
+body {
+  padding-bottom: 70px; /* Enough padding to prevent the buttons from overlapping with the bottom */
+}
