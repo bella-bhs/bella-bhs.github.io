@@ -151,11 +151,11 @@ body {
 }
 
 .nav-buttons .previous {
-  background-color: #f1f1f1;
+  background-color: #808080;
   color: #000;
 }
 
 .nav-buttons .next {
-  background-color: #04AA6D;
+  background-color: #013220;
   color: #fff;
 }
