@@ -1,11 +1,9 @@
-
-  :root {
- --primary: #D400D3;
+:root {
+  --primary: #D400D3;
   --secondary: #48FE80;
   --dark: #212121;
-  --light: #F3F3F3;      
+  --light: #F3F3F3;
 }
-
 
 * {
   margin: 0;
@@ -16,14 +14,26 @@ body {
   font-family: montserrat, sans-serif;
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack cards vertically */
+  width: 100%;
 }
 
 .card {
-  margin: 100px auto 0;
+  margin: 20px;
   width: 400px;
   height: 600px;
   perspective: 1000px;
-  display:inline-block;
+  display: none; /* Cards are hidden by default */
 }
 
 .card__inner {
@@ -39,12 +49,10 @@ body {
   transform: rotateY(180deg);
 }
 
-
 .card__face {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   border-radius: 16px;
@@ -127,16 +135,30 @@ body {
   line-height: 1.4;
 }
 
+/* Navigation button styles */
+.nav-buttons {
+  text-align: center;
+  margin-top: 30px;
+}
 
-  .previous {
-        background-color: #f1f1f1;
-        color: black;
-    }
-    .next {
-        background-color: #04AA6D;
-        color: white;
-    }
+.nav-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.nav-buttons .previous {
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+.nav-buttons .next {
+  background-color: #04AA6D;
+  color: #fff;
+}
 
 
 
