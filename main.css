@@ -18,6 +18,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--light);
+  flex-direction: column; /* Ensure content is vertically aligned */
+  position: relative; /* Allow positioning of the buttons at the bottom */
 }
 
 .card-container {
@@ -135,30 +137,48 @@ body {
   line-height: 1.4;
 }
 
-/* Navigation button styles */
+/* Navigation button styles at the bottom */
 .nav-buttons {
-  text-align: center;
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
 }
 
 .nav-buttons button {
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: 12px 30px;
+  margin: 0 15px;
   font-size: 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px; /* Round the corners */
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
 }
 
 .nav-buttons .previous {
-  background-color: #f1f1f1;
-  color: #000;
+  background: linear-gradient(45deg, #ff6b81, #f06396);
+  color: white;
 }
 
 .nav-buttons .next {
-  background-color: #04AA6D;
-  color: #fff;
+  background: linear-gradient(45deg, #04AA6D, #1de09f);
+  color: white;
 }
+
+.nav-buttons .previous:hover,
+.nav-buttons .next:hover {
+  transform: scale(1.1); /* Slightly enlarge the buttons on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+}
+
+/* Add some margin space to avoid the buttons from being too close to the edge */
+body {
+  padding-bottom: 70px; /* Enough padding to prevent the buttons from overlapping with the bottom */
+}
+
 
 
 
