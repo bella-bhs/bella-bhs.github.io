@@ -152,10 +152,22 @@ body {
 
 .nav-buttons .previous {
   background-color: #808080;
-  color: #000;
+  color: #fff;
 }
+
 
 .nav-buttons .next {
   background-color: #013220;
   color: #fff;
+}
+
+.challenge-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--dark);
 }
