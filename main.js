@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       currentCard++;
       showCard(currentCard);
     } else {
-      // Show challenge screen
+      
       cardContainer.style.display = "none";
       navButtons.style.display = "none";
       challengeScreen.style.display = "flex";
@@ -42,4 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
 
