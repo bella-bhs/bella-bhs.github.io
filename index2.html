@@ -1,37 +1,129 @@
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Challenge Page</title>
-    <script src="cardgame.js"></script>
-    <link rel=stylesheet"href="style.css">
-    
-  </head>
-</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text to Image Matching Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      vertical-align: middle;
+    }
+    .selected {
+      outline: 3px solid blue;
+    }
+    .correct {
+      background-color: #a8e6a3 !important;
+    }
+    .wrong {
+      background-color: #f6a6a6 !important;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
 <body>
 
-<table>
+<h2>Match Each Word to Its Image</h2>
+
+<!-- Text Table (3x3) -->
+<table id="textTable">
   <tr>
-    <td>I have three hearts. One pumps blood around the body, while the other two pump it to the gills. Oh, and that blood is blue, thanks to the high copper level!</td>
-    
-    <td> I can taste with my feet, chemoreceptors which help me identify plants</td>
-
-    <td> My eyeballs turn blue in winter to help them see at lower light levels</td>
-
-    <td> We recognize our call by the our whistle </td>
-
-   
+    <td data-match="img1">Apple</td>
+    <td data-match="img2">Banana</td>
+    <td data-match="img3">Orange</td>
   </tr>
-  
+  <tr>
+    <td data-match="img4">Cat</td>
+    <td data-match="img5">Dog</td>
+    <td data-match="img6">Bird</td>
+  </tr>
+  <tr>
+    <td data-match="img7">Car</td>
+    <td data-match="img8">Bike</td>
+    <td data-match="img9">Bus</td>
+  </tr>
 </table>
 
+<!-- Image Table (3x3) -->
+<table id="imageTable">
+  <tr>
+    <td><img src="https://via.placeholder.com/80?text=Apple" data-id="img1" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Banana" data-id="img2" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Orange" data-id="img3" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://via.placeholder.com/80?text=Cat" data-id="img4" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Dog" data-id="img5" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Bird" data-id="img6" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://via.placeholder.com/80?text=Car" data-id="img7" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Bike" data-id="img8" /></td>
+    <td><img src="https://via.placeholder.com/80?text=Bus" data-id="img9" /></td>
+  </tr>
+</table>
 
+<script>
+  let selectedTextCell = null;
 
+  // Track image cells for applying background
+  const imageCells = Array.from(document.querySelectorAll("#imageTable td"));
 
+  // Handle text cell click
+  document.querySelectorAll("#textTable td").forEach(cell => {
+    cell.addEventListener("click", () => {
+      if (selectedTextCell) selectedTextCell.classList.remove("selected");
+      selectedTextCell = cell;
+      selectedTextCell.classList.add("selected");
+    });
+  });
 
+  // Handle image click
+  document.querySelectorAll("#imageTable img").forEach(img => {
+    img.addEventListener("click", () => {
+      if (!selectedTextCell) return;
 
+      const correctMatch = selectedTextCell.dataset.match;
+      const clickedImgId = img.dataset.id;
 
+      const imgParentCell = img.closest("td");
 
+      // Reset previous styles
+      selectedTextCell.classList.remove("correct", "wrong", "selected");
+      imgParentCell.classList.remove("correct", "wrong");
 
-  
+      if (clickedImgId === correctMatch) {
+        selectedTextCell.classList.add("correct");
+        imgParentCell.classList.add("correct");
+      } else {
+        selectedTextCell.classList.add("wrong");
+        imgParentCell.classList.add("wrong");
+      }
+
+      selectedTextCell = null;
+    });
+  });
+</script>
+
 </body>
 </html>
