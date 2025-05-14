@@ -161,3 +161,6 @@ body {
   color: #fff;
 }
 
+#startChallengeLink {
+    display: none;
+}
