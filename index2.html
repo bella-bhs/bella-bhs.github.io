@@ -86,3 +86,35 @@
     </td>
   </tr>
 </table>
+
+
+  
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const nextButton = document.querySelector('.next');
+        const startChallengeLink = document.getElementById('startChallengeLink');
+        let currentCardIndex = 0;
+
+        // Function to go to the next card
+        nextButton.addEventListener('click', function() {
+            if (currentCardIndex < cards.length - 1) {
+                cards[currentCardIndex].style.display = 'none'; // Hide the current card
+                currentCardIndex++;
+                cards[currentCardIndex].style.display = 'block'; // Show the next card
+            }
+
+            // Show the "Start your challenge" link after the last card
+            if (currentCardIndex === cards.length - 1) {
+                startChallengeLink.style.display = 'block'; // Make the link visible
+            }
+        });
+
+        // Initially hide all cards except the first one
+        cards.forEach((card, index) => {
+            if (index !== 0) {
+                card.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
