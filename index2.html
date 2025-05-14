@@ -66,9 +66,14 @@
 <!-- Text table -->
 <table>
   <tr>
-    <td id="text-crab">I have teeth inside my stomachs.</td>
+    <td id="img-crab">
+      <img src="https://i.pinimg.com/originals/ee/6f/40/ee6f40ed1e7b1acf0ad0d841e3bb2e1e.jpg" alt="crab">
+    </td>
+ 
     <td id="text-blue whale"> Just my tongue weight as much as an adult elephant which is between 4,000 and 8,000 lb.</td>
+    
     <td id="text-octopuses">I have three hearts. One pumps blood around the body, while the other two pump it to the gills.</td>
+    
   </tr>
   <tr>
     
@@ -83,73 +88,22 @@
     
   </tr>
   <tr>
- 
-    <td id="text-jellyfish">I can cheat death indefinitely.</td>
-    <td id="text-elephant">I never forget things and more importantly I can walk 20 minutes right after my birth time. </td>
-  </tr>
-</table>
-
-<!-- Image table -->
-<table>
-
-
-  <tr>
-    <td id="img-octopuses">
+    
+  <td id="img-octopuses">
       <img src="https://octonation.com/wp-content/uploads/2022/07/octopus-vulgaris-shutterstock-scaled.jpg" alt="octopuses">
     </td>
-      
-    <td id="img-crab">
-      <img src="https://i.pinimg.com/originals/ee/6f/40/ee6f40ed1e7b1acf0ad0d841e3bb2e1e.jpg" alt="crab">
-    </td>
- 
+    
+    <td id="text-jellyfish">I can cheat death indefinitely.</td>
+    
+    <td id="text-elephant">I never forget things and more importantly I can walk 20 minutes right after my birth time. </td>
+
+       <td id="text-crab">I have teeth inside my stomachs.</td>
+    
+    
   </tr>
 </table>
 
 
-  
-  <script>
-  let selectedText = null;
 
-  // Handle clicking a text cell
-  document.querySelectorAll('[id^="text-"]').forEach(cell => {
-    cell.addEventListener('click', () => {
-      // Remove any previously selected text
-      if (selectedText) selectedText.classList.remove('selected');
-      
-      // Select the new text
-      selectedText = cell;
-      selectedText.classList.add('selected');
-    });
-  });
 
-  // Handle clicking an image cell
-  document.querySelectorAll('[id^="img-"]').forEach(cell => {
-    cell.addEventListener('click', () => {
-      // If no text is selected, return
-      if (!selectedText) return;
-
-      // Remove any previous correct/wrong colors
-      cell.classList.remove("correct", "wrong");
-      selectedText.classList.remove("correct", "wrong", "selected");
-
-      // Compare the IDs of the text and image
-      const textId = selectedText.id.replace("text-", "");
-      const imgId = cell.id.replace("img-", "");
-
-      // Check if the IDs match
-      if (textId === imgId) {
-        selectedText.classList.add("correct");
-        cell.classList.add("correct");
-      } else {
-        selectedText.classList.add("wrong");
-        cell.classList.add("wrong");
-      }
-
-      // Deselect the text after the image is clicked
-      selectedText = null;
-    });
-  });
-</script>
-
-</body>
-</html>
+ 
