@@ -67,7 +67,7 @@
 <!-- Image Table (3x3) -->
 <table id="imageTable">
   <tr>
-    <td><img src="https://via.placeholder.com/80?text=Apple" data-id="img1" /></td>
+    <td><img src="https://www.wildcoast.co.za/sites/default/files/bottlenose-dolphins-jumping-2.jpg" data-id="img1" /></td>
     <td><img src="https://via.placeholder.com/80?text=Banana" data-id="img2" /></td>
     <td><img src="https://via.placeholder.com/80?text=Orange" data-id="img3" /></td>
   </tr>
@@ -83,47 +83,6 @@
   </tr>
 </table>
 
-<script>
-  let selectedTextCell = null;
-
-  // Track image cells for applying background
-  const imageCells = Array.from(document.querySelectorAll("#imageTable td"));
-
-  // Handle text cell click
-  document.querySelectorAll("#textTable td").forEach(cell => {
-    cell.addEventListener("click", () => {
-      if (selectedTextCell) selectedTextCell.classList.remove("selected");
-      selectedTextCell = cell;
-      selectedTextCell.classList.add("selected");
-    });
-  });
-
-  // Handle image click
-  document.querySelectorAll("#imageTable img").forEach(img => {
-    img.addEventListener("click", () => {
-      if (!selectedTextCell) return;
-
-      const correctMatch = selectedTextCell.dataset.match;
-      const clickedImgId = img.dataset.id;
-
-      const imgParentCell = img.closest("td");
-
-      // Reset previous styles
-      selectedTextCell.classList.remove("correct", "wrong", "selected");
-      imgParentCell.classList.remove("correct", "wrong");
-
-      if (clickedImgId === correctMatch) {
-        selectedTextCell.classList.add("correct");
-        imgParentCell.classList.add("correct");
-      } else {
-        selectedTextCell.classList.add("wrong");
-        imgParentCell.classList.add("wrong");
-      }
-
-      selectedTextCell = null;
-    });
-  });
-</script>
 
 </body>
 </html>
