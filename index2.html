@@ -4,85 +4,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Text to Image Matching Game</title>
+  <title>Text to Image Matching Game (with IDs)</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      text-align: center;
     }
+
     table {
-      border-collapse: collapse;
       margin: 20px auto;
+      border-collapse: collapse;
     }
+
     td {
       border: 1px solid #444;
+      width: 160px;               /* Bigger width */
+      height: 130px;              /* Bigger height */
       padding: 10px;
       text-align: center;
-      cursor: pointer;
-      width: 100px;
-      height: 100px;
       vertical-align: middle;
+      cursor: pointer;
+      word-wrap: break-word;
+      font-size: 16px;
     }
+
+    img {
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
     .selected {
       outline: 3px solid blue;
     }
+
     .correct {
-      background-color: #a8e6a3 !important;
+      background-color: #a8e6a3;
     }
+
     .wrong {
-      background-color: #f6a6a6 !important;
-    }
-    img {
-      width: 80px;
-      height: 80px;
-    }
-    h2 {
-      text-align: center;
+      background-color: #f6a6a6;
     }
   </style>
 </head>
 <body>
 
-<h2>Match Each Word to Its Image</h2>
+<h2>Match the Words with the Images</h2>
 
-<!-- Text Table (3x3) -->
-<table id="textTable">
+<!-- TEXT TABLE -->
+<table>
   <tr>
-    <td data-match="img1">Apple</td>
-    <td data-match="img2">Banana</td>
-    <td data-match="img3">Orange</td>
+    <td id="text-apple">This is an apple</td>
+    <td id="text-banana">Yellow ripe banana</td>
+    <td id="text-orange">Juicy orange fruit</td>
   </tr>
   <tr>
-    <td data-match="img4">Cat</td>
-    <td data-match="img5">Dog</td>
-    <td data-match="img6">Bird</td>
+    <td id="text-cat">Cute little cat</td>
+    <td id="text-dog">Friendly barking dog</td>
+    <td id="text-bird">Colorful bird in tree</td>
   </tr>
   <tr>
-    <td data-match="img7">Car</td>
-    <td data-match="img8">Bike</td>
-    <td data-match="img9">Bus</td>
+    <td id="text-car">Fast moving car</td>
+    <td id="text-bike">Two-wheeled bike</td>
+    <td id="text-bus">Big yellow school bus</td>
   </tr>
 </table>
 
-<!-- Image Table (3x3) -->
-<table id="imageTable">
+<!-- IMAGE TABLE -->
+<table>
   <tr>
-    <td><img src="https://www.wildcoast.co.za/sites/default/files/bottlenose-dolphins-jumping-2.jpg" data-id="img1" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Banana" data-id="img2" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Orange" data-id="img3" /></td>
+    <td id="img-apple"><img src="https://via.placeholder.com/100?text=Apple"></td>
+    <td id="img-banana"><img src="https://via.placeholder.com/100?text=Banana"></td>
+    <td id="img-orange"><img src="https://via.placeholder.com/100?text=Orange"></td>
   </tr>
   <tr>
-    <td><img src="https://via.placeholder.com/80?text=Cat" data-id="img4" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Dog" data-id="img5" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Bird" data-id="img6" /></td>
+    <td id="img-cat"><img src="https://via.placeholder.com/100?text=Cat"></td>
+    <td id="img-dog"><img src="https://via.placeholder.com/100?text=Dog"></td>
+    <td id="img-bird"><img src="https://via.placeholder.com/100?text=Bird"></td>
   </tr>
   <tr>
-    <td><img src="https://via.placeholder.com/80?text=Car" data-id="img7" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Bike" data-id="img8" /></td>
-    <td><img src="https://via.placeholder.com/80?text=Bus" data-id="img9" /></td>
+    <td id="img-car"><img src="https://via.placeholder.com/100?text=Car"></td>
+    <td id="img-bike"><img src="https://via.placeholder.com/100?text=Bike"></td>
+    <td id="img-bus"><img src="https://via.placeholder.com/100?text=Bus"></td>
   </tr>
 </table>
 
+<script>
+  let selectedText = null;
 
-</body>
-</html>
+  // Get all text cells
+  const textCells = document.querySelectorAll('[id="text-"]');
+  textCells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      if (selectedText) selectedText.classList.remove('selected');
+      selectedText = cell;
+      selectedText.classList.add('selected');
+    });
+  });
+
+  // Get all image cells
+  const imageCells = document.querySelectorAll('[id="img-"]');
+  imageCells.forEach(imgCell => {
+    imgCell.addEventListener('click', () => {
+      if (!selectedText) return;
+
+      const textId = selectedText.id.replace("text-", "");
+      const imageId = imgCell.id.replace("img-", "");
+
+      // Reset previous
