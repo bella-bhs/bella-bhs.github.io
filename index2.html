@@ -108,53 +108,7 @@
   </tr>
 </table>
 
-
-  <!-- JavaScript for Matching and Sound -->
-  <script>
-    let selectedText = null;
-
-    const correctSound = document.getElementById("correctSound");
-    const wrongSound = document.getElementById("wrongSound");
-
-    // Text click
-    document.querySelectorAll('[id^="text-"]').forEach(cell => {
-      cell.addEventListener('click', () => {
-        // Deselect previous
-        if (selectedText) selectedText.classList.remove('selected');
-        selectedText = cell;
-        selectedText.classList.add('selected');
-      });
-    });
-
-    // Image click
-    document.querySelectorAll('[id^="img-"]').forEach(cell => {
-      cell.addEventListener('click', () => {
-        if (!selectedText) return;
-
-        // Clean up
-        cell.classList.remove("correct", "wrong");
-        selectedText.classList.remove("correct", "wrong", "selected");
-
-        const textId = selectedText.id.replace("text-", "");
-        const imgId = cell.id.replace("img-", "");
-
-        if (textId === imgId) {
-          // Match!
-          selectedText.classList.add("correct");
-          cell.classList.add("correct");
-          correctSound.play();
-        } else {
-          // Wrong match
-          selectedText.classList.add("wrong");
-          cell.classList.add("wrong");
-          wrongSound.play();
-        }
-
-        selectedText = null;
-      });
-    });
-  </script>
-
+     
 </body>
 </html>
 
