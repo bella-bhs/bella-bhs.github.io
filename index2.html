@@ -4,34 +4,58 @@
   <title>Match Words to Images</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       text-align: center;
+      background-color: #fdf6e3;
     }
+
+    h2 {
+      margin-top: 20px;
+      color: #444;
+    }
+
     table {
       margin: 20px auto;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 15px;
     }
+
     td {
-      border: 1px solid #444;
-      width: 150px;
-      height: 130px;
+      width: 160px;
+      height: 140px;
+      padding: 10px;
       text-align: center;
       vertical-align: middle;
       cursor: pointer;
       font-size: 16px;
+      background-color: #f0f0f0;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
+
+    td:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      background-color: #e0e0e0;
+    }
+
     img {
-      max-width: 100px;
-      max-height: 100px;
+      width: 100px;
+      height: 100px;
+      object-fit: cover; /* Makes all images fit neatly */
+      border-radius: 10px; /* Rounded images */
     }
+
     .selected {
       outline: 3px solid blue;
     }
+
     .correct {
-      background-color: #a8e6a3;
+      background-color: #a8e6a3 !important;
     }
+
     .wrong {
-      background-color: #f6a6a6;
+      background-color: #f6a6a6 !important;
     }
   </style>
 </head>
