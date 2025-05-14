@@ -1,47 +1,35 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Text to Image Matching Game (with IDs)</title>
+  <title>Match Words to Images</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
     }
-
     table {
       margin: 20px auto;
       border-collapse: collapse;
     }
-
     td {
       border: 1px solid #444;
-      width: 160px;               /* Bigger width */
-      height: 130px;              /* Bigger height */
-      padding: 10px;
+      width: 150px;
+      height: 130px;
       text-align: center;
       vertical-align: middle;
       cursor: pointer;
-      word-wrap: break-word;
       font-size: 16px;
     }
-
     img {
       max-width: 100px;
       max-height: 100px;
-      object-fit: contain;
     }
-
     .selected {
       outline: 3px solid blue;
     }
-
     .correct {
       background-color: #a8e6a3;
     }
-
     .wrong {
       background-color: #f6a6a6;
     }
@@ -49,66 +37,28 @@
 </head>
 <body>
 
-<h2>Match the Words with the Images</h2>
+<h2>Mix & Match</h2>
 
-<!-- TEXT TABLE -->
+<!-- Text table -->
 <table>
   <tr>
-    <td id="text-apple">This is an apple</td>
-    <td id="text-banana">Yellow ripe banana</td>
-    <td id="text-orange">Juicy orange fruit</td>
-  </tr>
-  <tr>
-    <td id="text-cat">Cute little cat</td>
-    <td id="text-dog">Friendly barking dog</td>
-    <td id="text-bird">Colorful bird in tree</td>
-  </tr>
-  <tr>
-    <td id="text-car">Fast moving car</td>
-    <td id="text-bike">Two-wheeled bike</td>
-    <td id="text-bus">Big yellow school bus</td>
+    <td id="text-crab">I have teeth inside my stomachs.</td>
+    <td id="text-blue whale"> Just my tongue weight as much as an adult elephant which is between 4,000 and 8,000 lb.</td>
+    <td id="text-octopuses">I have three hearts. One pumps blood around the body, while the other two pump it to the gills.</td>
   </tr>
 </table>
 
-<!-- IMAGE TABLE -->
+<!-- Image table -->
 <table>
   <tr>
-    <td id="img-apple"><img src="https://via.placeholder.com/100?text=Apple"></td>
-    <td id="img-banana"><img src="https://via.placeholder.com/100?text=Banana"></td>
-    <td id="img-orange"><img src="https://via.placeholder.com/100?text=Orange"></td>
-  </tr>
-  <tr>
-    <td id="img-cat"><img src="https://via.placeholder.com/100?text=Cat"></td>
-    <td id="img-dog"><img src="https://via.placeholder.com/100?text=Dog"></td>
-    <td id="img-bird"><img src="https://via.placeholder.com/100?text=Bird"></td>
-  </tr>
-  <tr>
-    <td id="img-car"><img src="https://via.placeholder.com/100?text=Car"></td>
-    <td id="img-bike"><img src="https://via.placeholder.com/100?text=Bike"></td>
-    <td id="img-bus"><img src="https://via.placeholder.com/100?text=Bus"></td>
+    <td id="img-crab">
+      <img src="https://i.pinimg.com/originals/ee/6f/40/ee6f40ed1e7b1acf0ad0d841e3bb2e1e.jpg" alt="crab">
+    </td>
+    <td id="img-blue whale">
+      <img src="https://img.freepik.com/premium-photo/closeup-view-blue-whale-swimming-ocean-ai_894067-1921.jpg" alt="blue whale">
+    </td>
+    <td id="img-octopuses">
+      <img src="https://octonation.com/wp-content/uploads/2022/07/octopus-vulgaris-shutterstock-scaled.jpg" alt="octopuses">
+    </td>
   </tr>
 </table>
-
-<script>
-  let selectedText = null;
-
-  // Get all text cells
-  const textCells = document.querySelectorAll('[id="text-"]');
-  textCells.forEach(cell => {
-    cell.addEventListener('click', () => {
-      if (selectedText) selectedText.classList.remove('selected');
-      selectedText = cell;
-      selectedText.classList.add('selected');
-    });
-  });
-
-  // Get all image cells
-  const imageCells = document.querySelectorAll('[id="img-"]');
-  imageCells.forEach(imgCell => {
-    imgCell.addEventListener('click', () => {
-      if (!selectedText) return;
-
-      const textId = selectedText.id.replace("text-", "");
-      const imageId = imgCell.id.replace("img-", "");
-
-      // Reset previous
