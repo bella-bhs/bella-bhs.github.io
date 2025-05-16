@@ -1,7 +1,7 @@
 
 
 function selectText() {
-    selectedText = "text-elephant"; // Store the selected text
+    selectedText = "text-elephant"; 
 }
 
     if ("text-elephant" === "img-elephant") {
