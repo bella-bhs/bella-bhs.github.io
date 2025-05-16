@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".card");
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".previous");
-  const challengeScreen = document.getElementById("challenge-screen");
   const cardContainer = document.querySelector(".card-container");
   const navButtons = document.querySelector(".nav-buttons");
 
