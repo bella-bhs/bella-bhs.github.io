@@ -1,13 +1,7 @@
 
-
-function text() {
-text = "text-elephant"; 
+function imgElephant() {
+    handleClick(document.getElementById("imgElephant"), "elephant");
 }
-
-    if ("text-elephant" === "img-elephant") {
-       backgroundColor = "green"; 
-    } else {
-       backgroundColor = "red"; 
-    }
-
-   
+function textElephant() {
+  handleClick(document.getElementById("textElephant"), "elephant");
+}
