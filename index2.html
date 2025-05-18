@@ -95,19 +95,14 @@ if (firstClick ===null) {
   else {
     firstClick.element.classList.remove("selected");
 
-    let elementsToCheck = [firstClick.element, element]; 
-
     if (firstClick.value === value) {
-      for (let element of elementsToCheck){
-        element.classList.remove("incorrect");
-        element.classList.add("correct"); 
-      }
+      firstClick.element.classList.add("correct");
+
+      firstClick.classList.add("correct");
     }
     else {
-      for (let element of elementsToCheck) {
-        element.classList.remove("correct");
-        element.classList.add("incorrect"); 
-      }
+      firstClick.element.classList.add("incorrect");
+      element.classList.add("incorrect");
     }
     
       
