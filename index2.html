@@ -56,6 +56,10 @@
 .incorrect {
   background-color: lightcoral; !important;
 }
+    td.correct:hover,
+    td.incorrect:hover {
+      background-color: inherit; 
+    }
   </style>
 </head>
 
@@ -83,34 +87,34 @@
 </table>
 
 
-    <script>  
-         let firstClick = null; 
+<script>  
+  function handleClick(value, elementId) {
+  const element = document.getElementById(elementId);
 
-function handleClick (value, elementId) {
-    const element = document.getElementById(elementId);
   
-if (firstClick ===null) {
-  firstClick = { value: value, element: element }; 
-  element.classList.add("selected"); 
-}
+  if (firstClick === null) {
+    firstClick = { value: value, element: element }; 
+    element.classList.add("selected"); 
+  } 
   else {
     firstClick.element.classList.remove("selected");
-  }
 
+  
     if (firstClick.value === value) {
       firstClick.element.classList.add("correct");
-
       element.classList.add("correct");
-    }
+    } 
     else {
+    
       firstClick.element.classList.add("incorrect");
       element.classList.add("incorrect");
     }
+
     
-  firstClick = null; 
+    firstClick = null; 
+  }
 }
-      
-    </script>
+</script>
     
 </body>
 </html>
