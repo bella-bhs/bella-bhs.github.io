@@ -43,8 +43,8 @@
     img {
       width: 100px;
       height: 100px;
-      object-fit: cover; // Makes images fit 
-      border-radius: 10px; // Rounded images
+      object-fit: cover; // make it fit -images 
+      border-radius: 10px; // make images round 
     }
 
     .selected {
@@ -53,6 +53,7 @@
 .correct {
   background-color: lightgreen; 
 }
+    
 .incorrect {
   background-color: lightcoral; 
 }
@@ -67,15 +68,15 @@
 <table>
   <tr>
 
-   <td id="imgButterfly" onclick="click('butterfly', document.getElementById('imgButterfly'))">
+   <td id="imgButterfly" onclick="handleClick('butterfly',  'imgButterfly')">
       <img src="https://th.bing.com/th/id/OIP.oNHfPgwUSWYFmyMQHYS7iAHaFj?rs=1&pid=ImgDetMain">
     </td>
     
-    <td id="imgElephant" onclick="click('elephant', document.getElementById('imgElephant'))">
+    <td id="imgElephant" onclick="handleClick('elephant', 'imgElephant')">
       <img src="https://cdn.britannica.com/72/272-050-E1965E27/African-elephant-Kenya.jpg">
     </td>
     
-    <td id="textElephant" onclick="click('elephant', document.getElementById('textElephant'))">
+    <td id="textElephant" onclick="handleClick('elephant', 'textElephant')">
       I never forget things and more importantly I can walk 20 minutes right after my birth time.
     </td>
     
@@ -85,25 +86,31 @@
      <script>
        let firstClick = null; 
 
-function click (x, y) {
-    if (firstClick===null){
-        firstClick = {x: x, y: y }; 
-    }
-  else {
-  let color;
-
-  if (firstClick.x === x) {
-    color = "lightgreen";
-  } else {
-    color = "lightcoral";
-  }
-
-  let elements = [firstClick.y, y];
-
-  for (let item of elements) {
-    item.style.backgroundColor = color;
-  }
+function handleClick (value, elementId) {
+    const element = document.getElementById(elementId);
+if (firstClick ===null) {
+  firstClick = {value: value, element: element}; 
+  element.classList.add("selected"); 
 }
+  else {
+    firstClick.element.classList.remove("selected");
+
+    let elementsToCheck = [firstClick.element, element]; 
+
+    if (firstClick.value === value) {
+      for (let element of elementsToCheck){
+        element.classList.remove("incorrect");
+        element.classList.add("correct"); 
+      }
+    }
+    else {
+      for (let element of elementsToCheck) {
+        element.classList.remove("correct");
+        element.classList.add("incorrect"); 
+      }
+    }
+    
+      
 
   firstClick = null; 
      </script>
