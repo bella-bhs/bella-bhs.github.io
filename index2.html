@@ -43,18 +43,18 @@
     img {
       width: 100px;
       height: 100px;
-      border-radius: 10px; // make images round 
+      border-radius: 10px; 
     }
 
     .selected {
       outline: 3px solid blue;
     }
 .correct {
-  background-color: lightgreen; 
+  background-color: lightgreen; !important;
 }
     
 .incorrect {
-  background-color: lightcoral; 
+  background-color: lightcoral; !important;
 }
   </style>
 </head>
@@ -83,7 +83,7 @@
 </table>
 
 
-    <script>  //javascript starts here
+    <script>  
          let firstClick = null; 
 
 function handleClick (value, elementId) {
