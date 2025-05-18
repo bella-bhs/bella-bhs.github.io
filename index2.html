@@ -50,7 +50,12 @@
     .selected {
       outline: 3px solid blue;
     }
-
+.correct {
+  background-color: lightgreen; 
+}
+.incorrect {
+  background-color: lightcoral; 
+}
   </style>
 </head>
 
@@ -62,12 +67,17 @@
 <table>
   <tr>
 
-     <td id="imgButterfly" onClick="imgButterfly();"><img src="https://th.bing.com/th/id/OIP.oNHfPgwUSWYFmyMQHYS7iAHaFj?rs=1&pid=ImgDetMain"></td>
+   <td id="imgButterfly" onclick="click('butterfly', document.getElementById('imgButterfly'))">
+      <img src="https://th.bing.com/th/id/OIP.oNHfPgwUSWYFmyMQHYS7iAHaFj?rs=1&pid=ImgDetMain">
+    </td>
     
-    <td id="imgElephant" onClick="imgElephant();"> <img src="https://cdn.britannica.com/72/272-050-E1965E27/African-elephant-Kenya.jpg"></td>
+    <td id="imgElephant" onclick="click('elephant', document.getElementById('imgElephant'))">
+      <img src="https://cdn.britannica.com/72/272-050-E1965E27/African-elephant-Kenya.jpg">
+    </td>
     
-    <td id="textElephant" onClick="textElephant();">I never forget things and more importantly I can walk 20 minutes right after my birth time.</td>
-    
+    <td id="textElephant" onclick="click('elephant', document.getElementById('textElephant'))">
+      I never forget things and more importantly I can walk 20 minutes right after my birth time.
+    </td>
     
   </tr>
 </table>
@@ -79,20 +89,23 @@ function click (x, y) {
     if (firstClick===null){
         firstClick = {x: x, y: y }; 
     }
-    else {
-        if (firstClick.x === x) {
-            firstClick.y.style.backgroundColor = '#8080F0'; 
-            y.style.backgroundColor = "lightgreen"; 
-        }
-        else { 
-            firstClick.y.style.backgroundColor = '#F08080'; 
-            y.style.backgroundColor = "lightred"; 
-        }
-        firstClick = null; 
-    }
+  else {
+  let color;
+
+  if (firstClick.x === x) {
+    color = "lightgreen";
+  } else {
+    color = "lightcoral";
+  }
+
+  let elements = [firstClick.y, y];
+
+  for (let item of elements) {
+    item.style.backgroundColor = color;
+  }
 }
 
-  
+  firstClick = null; 
      </script>
 </body>
 </html>
