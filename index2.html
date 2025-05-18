@@ -88,8 +88,9 @@
 
 function handleClick (value, elementId) {
     const element = document.getElementById(elementId);
+  
 if (firstClick ===null) {
-  firstClick = {value: value, element: element}; 
+  firstClick = { value: value, element: element }; 
   element.classList.add("selected"); 
 }
   else {
@@ -106,9 +107,9 @@ if (firstClick ===null) {
       element.classList.add("incorrect");
     }
     
-    
-
   firstClick = null; 
+}
+      
     </script>
     
 </body>
