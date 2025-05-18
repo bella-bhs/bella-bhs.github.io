@@ -32,7 +32,7 @@
       background-color: #f0f0f0;
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: property time;
+
     }
 
     td:hover {
@@ -43,7 +43,6 @@
     img {
       width: 100px;
       height: 100px;
-      object-fit: cover; // make it fit -images 
       border-radius: 10px; // make images round 
     }
 
@@ -83,8 +82,9 @@
   </tr>
 </table>
 
-     <script>
-       let firstClick = null; 
+
+    <script>  //javascript starts here
+         let firstClick = null; 
 
 function handleClick (value, elementId) {
     const element = document.getElementById(elementId);
@@ -94,6 +94,7 @@ if (firstClick ===null) {
 }
   else {
     firstClick.element.classList.remove("selected");
+  }
 
     if (firstClick.value === value) {
       firstClick.element.classList.add("correct");
@@ -108,7 +109,8 @@ if (firstClick ===null) {
     
 
   firstClick = null; 
-     </script>
+    </script>
+    
 </body>
 </html>
 
